@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body class="<%= controller.controller_name %>">
+	<div id="events_banner">
+			<%= image_tag("edit_event.jpg") %>
+			<%= image_tag("cause_arrow.jpg")%>
+			<%= image_tag("template_arrow.jpg")%>
+			<%= image_tag("Invite_arrow.jpg")%>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+	
+</body>
+
+
+<%= form_for @event, :url => { :action => "orgn_percent" }, :html => { :method => "put" } do |f| %>
+   <% if flash[:error] %>
+     <div id="error_explanation">
+       <h2> The following error prohibited this event from being saved:</h2>
+       <ul>
+         <%= flash[:error] %>
+       </ul>
+     </div>
+   <% end %>
+
+
+<h3>Willingness to contribute a part of your gift amount..</h3>
+
+  <body>
+	 <p> You have decided to be a part of <p1> <%= @Organization.orgn_title %> </p1> Organization. Indicate the % of your gift amount you desire
+		  to contribute toward this noble cause </p> <br><br>
+		  
+	  <div class="label">
+		 <%= f.label :contr_percent %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		 <%= f.text_field :contr_percent %><%= '%' %><br><br>
+	  </div>
+
+  <div class="actions">
+    <%= f.submit name = "Contribute"%>
+  </div>
+
+  </body>
+<% end %>

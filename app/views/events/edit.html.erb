@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body class="<%= controller.controller_name %>">
+	<div id="events_banner">
+			<%= image_tag("edit_event.jpg") %>
+			<%= image_tag("cause_arrow.jpg")%>
+			<%= image_tag("template_arrow.jpg")%>
+			<%= image_tag("Invite_arrow.jpg")%>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+	
+</body>
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <h3>Manage your event details:</h3>
+  <body>
+
+  <div class="label">
+    <%= f.label :event_name %> &emsp;&emsp;&emsp;&emsp;&emsp;
+    <%= @event.event_name %> <br><br>
+  </div>
+  <div class="label">
+    <%= f.label :event_date %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <%= select_datetime((Time.zone.at(DateTime.parse("#{@event.event_date}")).localtime), datetime_separator: '&emsp;&emsp;&emsp;Event Time&emsp;', ampm: true, 
+		:prefix => :event_date)%><br><br>
+  </div>
+  <div class="label">
+    <%= f.label :venue %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <%= f.text_field :venue, :size => 40 %><br><br>
+  </div>
+  <div class = "label">
+    <%= f.label :event_desc %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <%= f.text_area :event_desc, :size => "47x5" %><br><br>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit name = "Update Event & Continue"%>
+  </div>
+</body>
+<% end %> 
+
+</html>

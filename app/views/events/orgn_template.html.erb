@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body class="<%= controller.controller_name %>">
+	<div id="events_banner">
+			<%= image_tag("edit_event.jpg") %>
+			<%= image_tag("cause_arrow.jpg")%>
+			<%= image_tag("template_arrow.jpg")%>
+			<%= image_tag("Invite_arrow.jpg")%>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+	
+</body>
+
+
+<%= form_for @event, :url => { :action => "orgn_template" }, :html => { :method => "put" } do |f| %>
+  <% if !flash.empty? %>
+    <div id="error_explanation">
+      <h2> The following error prohibited this event from being saved:</h2>
+      <ul>
+        <% flash.each do |key, value| %>
+	        <p class="alert alert-<%= key %>"><%= value %></p>
+	    <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h3>Select your birthday template!!</h3>
+  <body>
+      <table id="image">
+         <tr>
+            <td><%= image_tag("Template_1.jpg") %></td>
+   		 	<td><%= image_tag("Template_2.jpg") %></td>
+			<td><%= image_tag("Template_3.jpg") %></td>
+         </tr>
+         <tr id = "text">
+            <td><%= radio_button_tag :template_id,  "1.jpg", "1.jpg" == @event.template_id%></td>
+   		 	<td><%= radio_button_tag :template_id,  "2.jpg", "2.jpg" == @event.template_id %></td>
+			<td><%= radio_button_tag :template_id,  "3.jpg", "3.jpg" == @event.template_id %></td>
+         </tr>
+      </table>
+  
+  <div class="actions">
+    <%= f.submit name = "Select a template"%>
+  </div>
+  
+  </body>
+<% end %>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body class="<%= controller.controller_name %>">
+	<div id="events_banner">
+			<%= image_tag("edit_event.jpg") %>
+			<%= image_tag("cause_arrow.jpg")%>
+			<%= image_tag("template_arrow.jpg")%>
+			<%= image_tag("Invite_arrow.jpg")%>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+	
+</body>
+
+
+<%= form_for @event, :url => { :action => "orgn_edit" }, :html => { :method => "put" } do |f| %>
+  <% if flash[:error] %>
+    <div id="error_explanation">
+      <h2> The following error prohibited this event from being saved:</h2>
+      <ul>
+        <%= flash[:error] %>
+      </ul>
+    </div>
+  <% end %>
+
+<h3>Choose the noble cause you wish to be a part of..</h3>
+  <body>
+  
+  <% @Organizations.each do |organization|  %>
+  
+   	<div class = "radio">
+    	<%= radio_button_tag :orgn_id,  organization.id, organization.id == @event.orgn_id %>
+  	 	<%= image_tag(organization.orgn_image_url, class: 'list_image') %> 
+  	</div>
+  	<div class = "radio">
+    	&emsp;&emsp;<a href= <%= organization.orgn_website %> target="_blank" > <%= organization.orgn_website %> </a>
+  	</div>
+  	<br><br>
+
+  <% end %>  
+  
+  <div class="actions">
+    <%= f.submit name = "Select a cause"%>
+  </div>
+  
+  </body>
+<% end %>

@@ -1,0 +1,91 @@
+// Place all the styles related to the event controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#events_banner {
+  background: #fcf2f9;
+  padding: 5px;
+  border-bottom: 2px solid; 
+  /*font: small-caps 40px/40px "Times New Roman", serif;*/
+  color: #e147ae;
+  text-align: left;
+}
+
+.header
+{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	line-height: 18px;
+	align: left;	
+	color: purple;
+	background: lightgrey;
+}
+
+body, p, h2
+{
+  color: purple;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+  
+  .p1
+  {
+	  font-style: bold;
+  }
+  
+}
+	
+.label 
+{
+	color: purple;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.radio
+{
+	text-align: center;
+}
+
+.actions
+{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 25px;
+	align: center;
+	display:inline-block;
+	color:#26328c;
+	font-weight:bold;
+	padding:15px 24px;
+	text-decoration:none;
+	cursor: pointer;
+	width: 100%;
+}
+
+table
+{
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+
+.radio-values
+{
+	margin-left: 7em;
+}
+
+html, #image {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+#image td {
+   vertical-align: middle;
+   text-align: center;
+}
+#text td {
+   vertical-align: middle;
+   text-align: center;
+   font: 17px "Comic Sans MS", serif;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body class="<%= controller.controller_name %>">
+	<div id="events_banner">
+			<%= image_tag("edit_event.jpg") %>
+			<%= image_tag("cause_arrow.jpg")%>
+			<%= image_tag("template_arrow.jpg")%>
+			<%= image_tag("Invite_arrow.jpg")%>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+	
+</body>
+
+
+<%= form_for @event, :url => { :action => "event_invite" }, :html => { :method => "put" } do |f| %>
+  <% if flash[:error] %>
+    <div id="error_explanation">
+      <h2> The following error prohibited this event from being saved:</h2>
+      <ul>
+         <%= flash[:error]%>
+      </ul>
+    </div>
+  <% end %>
+  
+
+<h3>Invite your friends!!!!</h3>
+  <body>
+	  <div class="label">
+	    <%= f.label :email_message %> &emsp;&emsp;&emsp;
+	    <%= f.text_area :email_message, :value => (@event.email_message ? @event.email_message : @email_message), :size => "55x5" %><br><br>
+	  </div>
+	  <div class = "label">
+	    <%= f.label :email_id %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	    <%= f.text_area :email_id, :size => "55x2" %><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		  (Enter one or more email ids separated by commas ',')
+		  
+	  </div>
+  
+  	  <div class="actions">
+    	<%= f.submit name = "Send Invite"%>
+	  </div>
+  
+  </body>
+<% end %>

@@ -1,0 +1,19 @@
+// Place all the styles related to the host_invitee controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body, #image {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+#image td {
+   vertical-align: middle;
+   text-align: center;
+}
+#text td {
+   vertical-align: middle;
+   text-align: center;
+   font: 17px "Comic Sans MS", serif;
+}

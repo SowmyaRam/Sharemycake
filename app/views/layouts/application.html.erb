@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sharemycake</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "main", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="<%= controller.controller_name %>">
+	<div id="banner">
+		<tr class = "main image">
+			<td>
+				<%= image_tag("logo_1.jpg") %>
+			</td>
+		</tr>
+		<tr>
+			<td class = "other image">
+				<%= image_tag("celebrate.jpg")%>
+				<%= image_tag("support_image.jpg")%>
+			</td>
+			<td class = "login user">
+				<% if current_user %> 
+					 Welcome,  <%= current_user %>
+				<% end %>
+			</td>
+		</tr>
+	</div>
+	<div id="rows">
+		<%= link_to 'Home', home_index_path %>
+		<%= link_to 'About', about_index_path %>
+		<%= link_to 'Organizations', organizations_index_path %>
+		<% if (current_user) %>
+			<% if params[:controller] != 'events' %>
+				<%= link_to 'Host/Invitee', host_invitee_index_path %>
+			<% end %>
+			<% if (params[:controller] == 'events') %>
+				<%= link_to 'Create Event', new_event_path %>
+				<% if event_exist %>
+					<%= link_to 'Edit Event', events_path %>
+				<% end %>
+			<% end %>
+			<%= link_to 'Logout', sessions_destroy_path %>
+		<%else%>
+			<%= link_to 'Login', sessions_new_path %>
+		<% end %>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+	
+</body>
+
+</html>

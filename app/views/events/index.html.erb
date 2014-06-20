@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body class="<%= controller.controller_name %>">
+	<div id="events_banner">
+			<%= image_tag("edit_event.jpg") %>
+			<%= image_tag("cause_arrow.jpg")%>
+			<%= image_tag("template_arrow.jpg")%>
+			<%= image_tag("Invite_arrow.jpg")%>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+
+<table>
+	<h3>Select an event to update..</h3>
+	<tr class = "header">
+		<th>Event Name</th>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<th>Event Description</th>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<th>Event Date</th>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<th>Event Time</th>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<th>Venue</th>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<th>Event Status</th>&emsp;&emsp;&emsp;&emsp;&emsp;
+	</tr>
+
+<% @events.each do |event| %>
+	<tr class="label"> 
+		<% if event.event_status == "Pending" %>
+			<td><%= link_to event.event_name, edit_event_path(event) %></td>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<% else %>
+			<td><%= event.event_name %></td>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<% end %>
+		<td><%= word_wrap(strip_tags(event.event_desc), length: 80) %></td>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<td><%= Time.zone.at(DateTime.parse("#{event.event_date}")).localtime.strftime("%Y-%m-%d") %></td>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<td><%= Time.zone.at(DateTime.parse("#{event.event_date}")).localtime.strftime("%I:%M %p") %></td>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<td><%= event.venue %></td>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<td><%= event.event_status %></td>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<td style="display:none"><%= event.id %></td>
+	</tr>
+<% end %> 
+
+</table>

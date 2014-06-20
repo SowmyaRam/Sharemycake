@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_id: 
+  event_name: MyString
+  event_desc: MyString
+  venue: MyString
+  event_date: 2014-06-01
+  event_time: 2014-06-01 12:18:54
+  event_status: MyString
+  orgn_id: 
+  template_id: 
+
+two:
+  member_id: 
+  event_name: MyString
+  event_desc: MyString
+  venue: MyString
+  event_date: 2014-06-01
+  event_time: 2014-06-01 12:18:54
+  event_status: MyString
+  orgn_id: 
+  template_id: 

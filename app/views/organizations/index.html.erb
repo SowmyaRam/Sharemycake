@@ -1,0 +1,21 @@
+<h2>Some of the Organizations that you can contribute to...</h2>
+<table>
+	
+<% @Organizations.each do |organization| %>
+	<tr>
+		<td class = "list_image">
+			<%= image_tag(organization.orgn_image_url, class: 'list_image') %> 
+		</td>
+		
+		<td class="list_description"> 
+			<dl>
+				<dt><%= organization.orgn_title %></dt>
+				<dd><%= word_wrap(strip_tags(organization.orgn_desc)) %>
+				</dd>
+				<dd><a href= <%= organization.orgn_website %> target="_blank" > <%= organization.orgn_website %> </a></dd>
+			</dl> 
+		</td>
+	</tr>
+<% end %> 
+
+</table>

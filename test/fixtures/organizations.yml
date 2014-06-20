@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_id: 
+  event_id: 
+  orgn_title: MyString
+  orgn_desc: MyString
+  orgn: 
+
+two:
+  member_id: 
+  event_id: 
+  orgn_title: MyString
+  orgn_desc: MyString
+  orgn: 

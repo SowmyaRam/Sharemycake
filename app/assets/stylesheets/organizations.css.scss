@@ -1,0 +1,58 @@
+// Place all the styles related to the organizations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* START_HIGHLIGHT */
+.organizations {
+	h2
+	{
+  	  color: purple;
+	  font-family: verdana, arial, helvetica, sans-serif;
+	  font-size: 13px;
+	  line-height: 18px;
+	}
+	
+  table {
+    border-collapse: collapse;
+  }
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+  
+  .list_image {
+	  margin: 0;
+  }
+
+  .list_description {
+    width: 70%;
+	color: purple;
+	font-family: verdana, arial, helvetica, sans-serif;
+
+    dl {
+      margin: 0;
+    }
+
+    dt {
+      color:        purple;
+      font-weight:  bold;
+      font-size:    larger;
+	  margin: 0;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  .list_actions {
+    font-size:    x-small;
+    text-align:   right;
+    padding-left: 1em;
+  }
+}
+/* END_HIGHLIGHT */

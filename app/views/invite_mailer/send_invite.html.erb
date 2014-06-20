@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css" media="screen">
+      body { font-size: 15px;
+	  	 	background: url(<%= image_path("2.jpg") %>) top repeat-x #cfcfcf;
+			background-size: cover;
+			align: center;}
+      ul {	line-height: 18px; }
+    </style>
+</head>
+<body>
+	<ul><%= image_tag("2.jpg")%>
+	<ul><%= @event.email_message %></ul>
+  <ul>
+    <li>Party for&emsp;&emsp;&emsp;: <%= @event.event_name %></li>
+    <li>Description&emsp; : <%= @event.event_desc %></li>
+    <li>Venue&emsp;&emsp;&emsp;&emsp;: <%= @event.venue %></li>
+	<li>Event Date&emsp;&emsp;&emsp;: <%= Time.zone.at(DateTime.parse("#{@event.event_date}")).localtime.strftime("%-d-%b-%Y") %></li>
+	<li>Event Time&emsp;&emsp;: <%= Time.zone.at(DateTime.parse("#{@event.event_date}")).localtime.strftime("%I:%M %p %Z") %></li>
+  </ul>
+  <br>
+  <ul>Looking forward to meeting you all at the party!!!</ul>
+  <ul>Regards,</ul>
+  <ul><%= @current_user %></ul>
+</body>
+</html>

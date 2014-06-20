@@ -1,0 +1,2 @@
+module HostInviteeHelper
+end
