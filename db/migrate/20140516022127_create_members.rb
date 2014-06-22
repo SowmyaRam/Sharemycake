@@ -1,9 +1,6 @@
 class CreateMembers < ActiveRecord::Migration
-  def up
-     drop_table :members
-  end
-   
-  def down
+
+  def change
     create_table :members do |t|
       t.string :email
       t.string :password_digest
