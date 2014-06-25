@@ -3,14 +3,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style type="text/css" media="screen">
       body { font-size: 15px;
-	  	 	background: url(<%= image_path("2.jpg") %>) top repeat-x #cfcfcf;
+	  	 	background: url(<%= image_path(@event.template_id) %>) top repeat-x #cfcfcf;
 			background-size: cover;
 			align: center;}
       ul {	line-height: 18px; }
     </style>
 </head>
 <body>
-	<ul><%= image_tag("2.jpg")%>
+	<ul><%= image_tag(@event.template_id)%>
 	<ul><%= @event.email_message %></ul>
   <ul>
     <li>Party for&emsp;&emsp;&emsp;: <%= @event.event_name %></li>

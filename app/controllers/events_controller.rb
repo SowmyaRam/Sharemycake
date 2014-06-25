@@ -153,8 +153,7 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       if @event.update(email_params)
-        # Commented by R.Sowmya - tested the email feature on the development environment.
-        #InviteMailer.send_invite(@event).deliver
+        InviteMailer.send_invite(@event).deliver
         format.html { redirect_to event_invite_events_path  }
         format.json { head :no_content }
       else
