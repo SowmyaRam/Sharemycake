@@ -1,5 +1,5 @@
 class InviteMailer < ActionMailer::Base
-  default from: "<email id>"
+  default from: "sowmya.rails.test@gmail.com"
   
   def send_invite(event)
     @event = event
